@@ -8,6 +8,6 @@
   },
   "compileType": "miniprogram",
   "appid": "touristappid",
-  "projectname": "wepy-usage",
+  "projectname": "wepy",
   "miniprogramRoot": "./weapp"
 }

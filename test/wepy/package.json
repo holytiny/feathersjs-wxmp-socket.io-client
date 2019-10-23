@@ -1,6 +1,6 @@
 {
-  "name": "wepy-usage",
-  "version": "0.0.0",
+  "name": "wepy",
+  "version": "0.0.2",
   "description": "A WePY project",
   "main": "weapp/app.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "@wepy/babel-plugin-import-regenerator": "0.0.2",
     "babel-eslint": "^7.2.1",
     "cross-env": "^5.1.3",
-    "eslint": "^4.18.2",
+    "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-plugin-html": "^2.0.1",
