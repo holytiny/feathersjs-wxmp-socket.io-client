@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "devDependencies": {
+    "@wepy/cli": "2.0.0-alpha.17",
     "lerna": "^3.18.3"
   }
 }

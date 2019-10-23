@@ -1,0 +1,33 @@
+{
+  "name": "wxmp.socket.io-client",
+  "version": "0.0.0",
+  "description": "The weixin mini-programme client of socket.io.",
+  "keywords": [
+    "weixin",
+    "mini-programme",
+    "socket.io-client."
+  ],
+  "contributors": [
+    "Sake <pan.ziqiang@holytiny.com>"
+  ],
+  "homepage": "https://github.com/holytiny/feathersjs-wxmp-socketio-client#readme",
+  "license": "MIT",
+  "main": "lib/wxmp.socket.io-client.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holytiny/feathersjs-wxmp-socketio-client.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/holytiny/feathersjs-wxmp-socketio-client/issues"
+  }
+}
