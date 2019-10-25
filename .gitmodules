@@ -1,0 +1,3 @@
+[submodule "packages/wxmp.engine.io-client"]
+	path = packages/wxmp.engine.io-client
+	url = https://enderson-pan@github.com/holytiny/engine.io-client.git
