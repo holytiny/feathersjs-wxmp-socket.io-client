@@ -3,11 +3,9 @@ const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
 const webpack = require('webpack-stream');
 const child = require('child_process');
-const help = require('gulp-task-listing');
 const del = require('del');
 const eslint = require('gulp-eslint');
-
-gulp.task('help', help);
+// gulp.task('help', help);
 
 // //////////////////////////////////////
 // BUILDING
@@ -15,13 +13,20 @@ gulp.task('help', help);
 
 const BUILD_TARGET_DIR = './';
 
-gulp.task('default', ['build']);
-
-gulp.task('build', function () {
+function build () {
   return gulp.src('lib/**/*.js')
     .pipe(webpack(require('./support/webpack.config.js')))
     .pipe(gulp.dest(BUILD_TARGET_DIR));
-});
+}
+build.description = 'update the browser build (engine.io.js)';
+
+// gulp.task('default', ['build']);
+//
+// gulp.task('build', function () {
+//   return gulp.src('lib/**/*.js')
+//     .pipe(webpack(require('./support/webpack.config.js')))
+//     .pipe(gulp.dest(BUILD_TARGET_DIR));
+// });
 
 // //////////////////////////////////////
 // TESTING
@@ -37,15 +42,24 @@ const FILES_TO_CLEAN = [
   'test/support/public/engine.io.js'
 ];
 
-gulp.task('test', ['lint'], function () {
+const test = gulp.series(lint, () => {
   if (process.env.hasOwnProperty('BROWSERS')) {
     return testZuul();
   } else {
     return testNode();
   }
 });
+test.description = 'run tests either in the browser or in Node.js, based on the `BROWSERS` variable';
 
-gulp.task('lint', function () {
+// gulp.task('test', ['lint'], function () {
+//   if (process.env.hasOwnProperty('BROWSERS')) {
+//     return testZuul();
+//   } else {
+//     return testNode();
+//   }
+// });
+
+function lint () {
   return gulp.src([
     '*.js',
     'lib/**/*.js',
@@ -55,10 +69,22 @@ gulp.task('lint', function () {
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
-});
+}
 
-gulp.task('test-node', testNode);
-gulp.task('test-zuul', testZuul);
+// gulp.task('lint', function () {
+//   return gulp.src([
+//     '*.js',
+//     'lib/**/*.js',
+//     'test/**/*.js',
+//     '!engine.io.js'
+//   ])
+//     .pipe(eslint())
+//     .pipe(eslint.format())
+//     .pipe(eslint.failAfterError());
+// });
+
+// gulp.task('test-node', testNode);
+// gulp.task('test-zuul', testZuul);
 
 function testNode () {
   return gulp.src(TEST_FILE, { read: false })
@@ -74,6 +100,8 @@ function testNode () {
       process.exit();
     });
 }
+testNode.displayName = 'test:node';
+testNode.description = 'run tests in Node.js';
 
 // runs zuul through shell process
 function testZuul () {
@@ -84,20 +112,29 @@ function testZuul () {
     process.exit(code);
   });
 }
+testZuul.displayName = 'test:zuul';
+testZuul.description = 'run tests in the browser';
 
 function cleanFiles (globArray) {
   return del.sync(globArray);
 }
 
-gulp.task('istanbul-pre-test', function () {
+function instanbulPreTest () {
   return gulp.src(['lib/**/*.js'])
-    // Covering files
+  // Covering files
     .pipe(istanbul())
     // Force `require` to return covered files
     .pipe(istanbul.hookRequire());
-});
+}
+// gulp.task('istanbul-pre-test', function () {
+//   return gulp.src(['lib/**/*.js'])
+//     // Covering files
+//     .pipe(istanbul())
+//     // Force `require` to return covered files
+//     .pipe(istanbul.hookRequire());
+// });
 
-gulp.task('test-cov', ['istanbul-pre-test'], function () {
+const testCov = gulp.series(instanbulPreTest, function () {
   return gulp.src(TEST_FILE)
     .pipe(mocha(MOCHA_OPTS))
     .pipe(istanbul.writeReports())
@@ -111,3 +148,30 @@ gulp.task('test-cov', ['istanbul-pre-test'], function () {
       process.exit();
     });
 });
+testCov.displayName = 'test:cov';
+testCov.description = 'run tests with coverage in Node.js';
+// gulp.task('test-cov', ['istanbul-pre-test'], function () {
+//   return gulp.src(TEST_FILE)
+//     .pipe(mocha(MOCHA_OPTS))
+//     .pipe(istanbul.writeReports())
+//     .once('error', function (err) {
+//       cleanFiles(FILES_TO_CLEAN);
+//       console.error(err.stack);
+//       process.exit(1);
+//     })
+//     .once('end', function () {
+//       cleanFiles(FILES_TO_CLEAN);
+//       process.exit();
+//     });
+// });
+
+// //////////////////////////////////////
+// TASKS
+// //////////////////////////////////////
+exports.default = build;
+exports.build = build;
+exports.lint = lint;
+exports.test = test;
+exports.testNode = testNode;
+exports.testZuul = testZuul;
+exports.testCov = testCov;
