@@ -140,11 +140,12 @@ module.exports.getTime = getTime;
 </template>
 
 <script>
-  import wepy from '@wepy/core'
+  import wepy from '@wepy/core';
   import eventHub from '../common/eventHub';
   import { mapState } from '@wepy/x';
   import store from '../store';
-  import testMixin from '../mixins/test'
+  import testMixin from '../mixins/test';
+  import feathersClient from '@/utils/client';
 
   wepy.page({
     store,
@@ -164,7 +165,7 @@ module.exports.getTime = getTime;
       }
     },
 
- 
+
 
     mixins: [testMixin],
 
@@ -283,8 +284,10 @@ module.exports.getTime = getTime;
     },
 
     created () {
+      feathersClient.log();
+
       let self = this
-      self.currentTime = +new Date(); 
+      self.currentTime = +new Date();
 
       self.setTimeoutTitle = '标题三秒后会被修改';
       setTimeout(() => {

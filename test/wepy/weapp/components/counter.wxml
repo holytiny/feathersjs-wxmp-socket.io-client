@@ -1,9 +1,9 @@
 
 <view class="counter {{style}}">
-  <button size="mini" data-wpy-evt="14-0" bindtap="_proxy">  +  </button>
-  <button size="mini" data-wpy-evt="14-1" bindtap="_proxy">  -  </button>
-  <button size="mini" data-wpy-evt="14-2" bindtap="_proxy">  INCREMENT  </button>
-  <button size="mini" data-wpy-evt="14-3" bindtap="_proxy">  DECREMENT  </button>
-  <button size="mini" data-wpy-evt="14-4" bindtap="_proxy">  ASYNC INCREMENT  </button>
+  <button size="mini" data-wpy-evt="15-0" bindtap="_proxy">  +  </button>
+  <button size="mini" data-wpy-evt="15-1" bindtap="_proxy">  -  </button>
+  <button size="mini" data-wpy-evt="15-2" bindtap="_proxy">  INCREMENT  </button>
+  <button size="mini" data-wpy-evt="15-3" bindtap="_proxy">  DECREMENT  </button>
+  <button size="mini" data-wpy-evt="15-4" bindtap="_proxy">  ASYNC INCREMENT  </button>
   <label class="count"> {{counter}} </label>
 </view>

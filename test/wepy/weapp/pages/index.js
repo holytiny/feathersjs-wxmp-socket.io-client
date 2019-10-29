@@ -10,6 +10,8 @@ var _store = _interopRequireDefault(require('../store/index.js'));
 
 var _test = _interopRequireDefault(require('../mixins/test.js'));
 
+var _client = _interopRequireDefault(require('../utils/client.js'));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -142,6 +144,8 @@ _core["default"].page({
     }
   },
   created: function created() {
+    _client["default"].log();
+
     var self = this;
     self.currentTime = +new Date();
     self.setTimeoutTitle = '标题三秒后会被修改';
