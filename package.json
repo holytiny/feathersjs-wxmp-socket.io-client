@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "devDependencies": {
+    "@vue/cli": "4.0.5",
     "@wepy/cli": "2.0.0-alpha.20",
     "lerna": "^3.18.3"
   }
