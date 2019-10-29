@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var eio = require('engine.io-client');
+var eio = require('../../wxmp.engine.io-client/');
 var Socket = require('./socket');
 var Emitter = require('component-emitter');
 var parser = require('socket.io-parser');
