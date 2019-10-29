@@ -16,7 +16,6 @@ import vuex from '@wepy/x';
 
 wepy.use(vuex);
 
-
 wepy.app({
   hooks: {
     // App 级别 hook，对整个 App 生效
