@@ -5,7 +5,14 @@
 var XMLHttpRequest = require('xmlhttprequest-ssl');
 var XHR = require('./polling-xhr');
 var JSONP = require('./polling-jsonp');
+
+// default websocket.
 var websocket = require('./websocket');
+
+// wexin mini program environment.
+if ('function' === typeof wx.connectSocket) {
+  websocket = require('./wxmp.websocket');
+}
 
 /**
  * Export transports.
