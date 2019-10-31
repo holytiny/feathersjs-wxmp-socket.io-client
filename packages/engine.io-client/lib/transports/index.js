@@ -9,9 +9,12 @@ var JSONP = require('./polling-jsonp');
 // default websocket.
 var websocket = require('./websocket');
 
-// wexin mini program environment.
+// weixin mini program environment.
+// eslint-disable-next-line no-undef
 if ('function' === typeof wx.connectSocket) {
-  websocket = require('./wxmp.websocket');
+  // ES6 export and require compatible.
+  const ws = require('./wxmp.websocket');
+  websocket = ws.WS;
 }
 
 /**

@@ -5,6 +5,10 @@
     "node": true,
     "browser": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
   "rules": {
     "yoda": 0,
     "semi": [2, "always"],
