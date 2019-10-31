@@ -4,11 +4,13 @@ import io from '../../../../packages/wxmp.socket.io-client';
 
 const socketioInit = io('http://localhost:3030', {
   transports: ['websocket'],
-  forceNew: true
+  forceNew: true,
+  timeout: false
 });
 
 const feathersClient = feathers();
-feathersClient.configure(feathersSocketioClient(socketioInit, { timeout: 1000 * 20 }));
+//feathersClient.configure(feathersSocketioClient(socketioInit, { timeout: 1000 * 20 }));
+feathersClient.configure(feathersSocketioClient(socketioInit));
 
 console.log('export feathersClient', feathersClient);
 export default feathersClient;
