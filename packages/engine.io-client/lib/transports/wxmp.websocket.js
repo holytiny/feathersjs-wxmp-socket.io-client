@@ -216,20 +216,26 @@ export class WS extends Transport {
       return;
     }
 
-    let uri = this.uri();
-    let protocols = this.protocols;
+    const uri = this.uri();
+    const protocols = this.protocols;
     console.log('wx.connectSocket');
     try {
+      const self = this;
+      let wxConnectSocketParam = {
+        // success: () => {
+        //   // console.log('wx.connectSocket success!: ', param);
+        //   self.onOpenWrapper();
+        // },
+        // fail: (e) => {
+        //   // console.log('wx.connectSocket fail: ', e);
+        //   self.onError(e);
+        // },
+        url: uri
+      };
       if (protocols) {
-        this.ws = wx.connectSocket({
-          url: uri,
-          protocols
-        });
-      } else {
-        this.ws = wx.connectSocket({
-          url: uri
-        });
+        wxConnectSocketParam.protocols = protocols;
       }
+      this.ws = wx.connectSocket(wxConnectSocketParam);
     } catch (err) {
       return this.emit('error', err);
     }
@@ -270,22 +276,13 @@ export class WS extends Transport {
   //   };
   // };
   addEventListeners () {
-    let self = this;
+    const self = this;
 
-    // this.ws.onopen = function () {
-    //   self.onOpen();
-    // };
-    // this.ws.onclose = function () {
-    //   self.onClose();
-    // };
-    // this.ws.onmessage = function (ev) {
-    //   self.onData(ev.data);
-    // };
-    // this.ws.onerror = function (e) {
-    //   self.onError('websocket error', e);
-    // };
     this.ws.onOpen(function () {
       self.onOpen();
+    });
+    this.ws.onError(function (e) {
+      self.onError('websocket error', e);
     });
     this.ws.onClose(function () {
       self.onClose();
@@ -293,10 +290,23 @@ export class WS extends Transport {
     this.ws.onMessage(function (data) {
       self.onData(data);
     });
-    this.ws.onError(function (e) {
-      self.onError('websocket error', e);
-    });
   }
+
+  /**
+   * Called upon open, a tricky function
+   * 不知道为什么，在微信小程序环境下，wx.connectSocket
+   * 的success消息响应会打断后续程序的执行，所以导致初始化
+   * 的程序没有执行完，就会抛出'open'事件。
+   * 在这里用强制的手法，恢复主线程程序的执行，把'open'事件的抛出
+   * 推后到主线程程序执行之后马上执行。 最新的sdk没有问题了已经。
+   * @api private
+   */
+  // onOpenWrapper () {
+  //   const self = this;
+  //   setTimeout(() => {
+  //     self.onOpen();
+  //   }, 0);
+  // }
 
   /**
    * Called upon close
