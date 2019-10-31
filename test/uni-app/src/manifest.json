@@ -82,6 +82,7 @@
     /* 小程序特有相关 */
     "mp-weixin" : {
         "appid" : "",
+        "libVersion": "2.9.1",
         "setting" : {
             "urlCheck" : false
         },
