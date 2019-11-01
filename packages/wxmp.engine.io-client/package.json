@@ -1,5 +1,5 @@
 {
-  "name": "@holytiny/engine.io-client",
+  "name": "@holytiny/wxmp.engine.io-client",
   "description": "Client for the realtime Engine",
   "license": "MIT",
   "version": "3.4.0",
