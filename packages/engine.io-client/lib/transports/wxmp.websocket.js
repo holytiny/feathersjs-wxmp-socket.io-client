@@ -8,9 +8,9 @@ import parseqs from 'parseqs';
 // let inherit = require('component-inherit');
 import yeast from 'yeast';
 import debug from 'debug';
-debug('wxmp.engine.io-client:websocket');
+debug('wxmp.engine.io-client:wxmp.websocket');
 
-console.log('in wxmp.engine.io-client.js!');
+// console.log('in wxmp.engine.io-client.js!');
 
 // let BrowserWebSocket, NodeWebSocket;
 //
