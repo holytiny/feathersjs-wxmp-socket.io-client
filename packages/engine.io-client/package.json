@@ -1,5 +1,5 @@
 {
-  "name": "engine.io-client",
+  "name": "@holytiny/engine.io-client",
   "description": "Client for the realtime Engine",
   "license": "MIT",
   "version": "3.4.0",
