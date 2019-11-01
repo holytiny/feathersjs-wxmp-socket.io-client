@@ -1,6 +1,0 @@
-[submodule "packages/wxmp.engine.io-client"]
-	path = packages/wxmp.engine.io-client
-	url = https://enderson-pan@github.com/holytiny/engine.io-client.git
-[submodule "packages/wxmp.socket.io-client"]
-	path = packages/wxmp.socket.io-client
-	url = https://enderson-pan@github.com/holytiny/socket.io-client.git
