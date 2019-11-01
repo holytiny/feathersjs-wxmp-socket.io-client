@@ -7,8 +7,8 @@ import parser from 'engine.io-parser';
 import parseqs from 'parseqs';
 // let inherit = require('component-inherit');
 import yeast from 'yeast';
-import debug from 'debug';
-debug('wxmp.engine.io-client:wxmp.websocket');
+import Debug from 'debug';
+const debug = Debug('wxmp.engine.io-client:wxmp.websocket');
 
 // console.log('in wxmp.engine.io-client.js!');
 
@@ -218,9 +218,8 @@ export class WS extends Transport {
 
     const uri = this.uri();
     const protocols = this.protocols;
-    console.log('wx.connectSocket');
+    debug('wx.connectSocket');
     try {
-      const self = this;
       let wxConnectSocketParam = {
         // success: () => {
         //   // console.log('wx.connectSocket success!: ', param);
