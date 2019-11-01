@@ -278,16 +278,20 @@ export class WS extends Transport {
     const self = this;
 
     this.ws.onOpen(function () {
+      debug('websocket opened!');
       self.onOpen();
     });
     this.ws.onError(function (e) {
+      debug('websocket error!', e);
       self.onError('websocket error', e);
     });
     this.ws.onClose(function () {
+      debug('websocket closed!');
       self.onClose();
     });
-    this.ws.onMessage(function (data) {
-      self.onData(data);
+    this.ws.onMessage(function (ev) {
+      debug(`websocket received data: ${ev.data}, type: ${typeof (ev.data)}`);
+      self.onData(ev.data);
     });
   }
 
