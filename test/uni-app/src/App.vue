@@ -3,7 +3,16 @@
     export default {
         onLaunch: function() {
             console.log('App Launch');
-            console.log('Try to import feathersjs-wxmp.socket.io-client： ', feathersClient);
+            // console.log('Try to import feathersjs-wxmp.socket.io-client： ', feathersClient);
+          feathersClient.authenticate({
+            strategy: 'local',
+            cellPhone: '18066838889',
+            password: 'holytiny@999'
+          }).then(res => {
+            console.log('logged in!', res);
+          }).catch(e => {
+            console.log('error: ', e);
+          });
             // #ifdef APP-PLUS
             // 锁定屏幕方向
             plus.screen.lockOrientation('portrait-primary'); //锁定
