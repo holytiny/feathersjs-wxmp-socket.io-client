@@ -1,5 +1,5 @@
 {
-  "name": "@holytiny/socket.io-client",
+  "name": "@holytiny/wxmp-socket.io-client",
   "version": "2.2.0",
   "keywords": [
     "realtime",
