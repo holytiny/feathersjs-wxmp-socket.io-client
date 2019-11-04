@@ -1,5 +1,9 @@
 <script>
-  import feathersClient from '@/utils/client';
+  import wxmpPolyfill from '@holytiny/wxmp-polyfill';
+  // console.log('init wxmp polyfill');
+  wxmpPolyfill.init();
+  import FeathersClient from '@/utils/client';
+  const feathersClient = FeathersClient();
     export default {
         onLaunch: function() {
             console.log('App Launch');
@@ -8,8 +12,11 @@
             strategy: 'local',
             cellPhone: '18066838889',
             password: 'holytiny@999'
-          }).then(res => {
+          }).then(async res => {
             console.log('logged in!', res);
+            const service = feathersClient.service('device');
+            const devices = await service.find({});
+            console.log('find devices: ', devices);
           }).catch(e => {
             console.log('error: ', e);
           });

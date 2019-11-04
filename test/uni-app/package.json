@@ -36,6 +36,7 @@
     "@feathersjs/authentication-client": "4.3.7",
     "@feathersjs/feathers": "4.3.7",
     "@feathersjs/socketio-client": "4.3.7",
+    "@holytiny/wxmp-polyfill": "file:../../../holytiny/wxmp-polyfill/src",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.6.10",
