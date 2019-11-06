@@ -2,8 +2,6 @@ import feathers from '@feathersjs/feathers';
 import auth from '@feathersjs/authentication-client';
 import feathersSocketioClient from '@feathersjs/socketio-client';
 import io from '../../../../packages/wxmp-socket.io-client';
-// import io from '@holytiny/wxmp-socket.io-client';
-import wxmp from '@holytiny/wxmp-polyfill';
 
 import Debug from 'debug';
 if ('production'.localeCompare(process.env.NODE_ENV) !== 0) {

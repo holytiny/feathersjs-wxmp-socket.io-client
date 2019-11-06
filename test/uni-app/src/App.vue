@@ -1,7 +1,4 @@
 <script>
-  import wxmpPolyfill from '@holytiny/wxmp-polyfill';
-  // console.log('init wxmp polyfill');
-  wxmpPolyfill.init();
   import FeathersClient from '@/utils/client';
   const feathersClient = FeathersClient();
     export default {
@@ -17,6 +14,7 @@
             const service = feathersClient.service('device');
             const devices = await service.find({});
             console.log('find devices: ', devices);
+            console.log('localStorage: ', localStorage);
           }).catch(e => {
             console.log('error: ', e);
           });
