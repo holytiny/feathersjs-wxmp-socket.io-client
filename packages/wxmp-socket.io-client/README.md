@@ -2,6 +2,7 @@
 # @holytiny/wxmp-socket.io-client
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![npm version](https://badge.fury.io/js/%40holytiny%2Fwxmp-socket.io-client.svg)](https://badge.fury.io/js/%40holytiny%2Fwxmp-socket.io-client)
 
 &emsp;&emsp;这个项目是微信小程序环境下[Socket.IO](http://github.com/socketio/socket.io)的客户端。
 
