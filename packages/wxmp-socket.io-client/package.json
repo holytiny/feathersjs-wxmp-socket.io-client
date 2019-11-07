@@ -1,5 +1,8 @@
 {
   "name": "@holytiny/wxmp-socket.io-client",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.1-alpha.1",
   "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
