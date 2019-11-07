@@ -2,26 +2,14 @@
   "name": "@holytiny/wxmp-engine.io-client",
   "description": "Client for the realtime Engine",
   "license": "MIT",
-  "version": "3.4.0",
+  "version": "0.0.0",
   "main": "lib/index.js",
-  "homepage": "https://github.com/socketio/engine.io-client",
+  "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
+  "author": "Holytiny <contact@holytiny.com>",
   "contributors": [
-    {
-      "name": "Guillermo Rauch",
-      "email": "rauchg@gmail.com"
-    },
-    {
-      "name": "Vladimir Dronnikov",
-      "email": "dronnikov@gmail.com"
-    },
-    {
-      "name": "Christoph Dorn",
-      "web": "https://github.com/cadorn"
-    },
-    {
-      "name": "Mark Mokryn",
-      "email": "mokesmokes@gmail.com"
-    }
+    "Ranco0929 <676667544@qq.com>",
+    "xidianzyf <1143942196@qq.com>",
+    "zzXiongFan <zzxiongfan@gmail.com>"
   ],
   "dependencies": {
     "component-emitter": "1.2.1",
@@ -78,7 +66,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/socketio/engine.io-client.git"
+    "url": "git+https://github.com/holytiny/feathersjs-wxmp-socket.io-client.git"
   },
   "files": [
     "index.js",

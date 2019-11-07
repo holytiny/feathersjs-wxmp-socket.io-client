@@ -1,56 +1,22 @@
 
-# socket.io-client
+# @holytiny/wxmp-socket.io-client
 
-[![Build Status](https://secure.travis-ci.org/socketio/socket.io-client.svg?branch=master)](http://travis-ci.org/socketio/socket.io-client)
-[![Dependency Status](https://david-dm.org/socketio/socket.io-client.svg)](https://david-dm.org/socketio/socket.io-client)
-[![devDependency Status](https://david-dm.org/socketio/socket.io-client/dev-status.svg)](https://david-dm.org/socketio/socket.io-client#info=devDependencies)
-[![NPM version](https://badge.fury.io/js/socket.io-client.svg)](https://www.npmjs.com/package/socket.io-client)
-![Downloads](http://img.shields.io/npm/dm/socket.io-client.svg?style=flat)
-[![](http://slack.socket.io/badge.svg?)](http://slack.socket.io)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/socket.svg)](https://saucelabs.com/u/socket)
+&emsp;&emsp;这个项目是微信小程序环境下[Socket.IO](http://github.com/socketio/socket.io)的客户端。
 
-## How to use
+&emsp;&emsp;与[Socket.IO-client](https://socket.io/docs/client-api/)完全兼容，
+支持微信小程序环境下多websocket链接。
 
-A standalone build of `socket.io-client` is exposed automatically by the
-socket.io server as `/socket.io/socket.io.js`. Alternatively you can
-serve the file `socket.io.js` found in the `dist` folder or include it via [CDN](https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js).
-
-```html
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io('http://localhost');
-  socket.on('connect', function(){});
-  socket.on('event', function(data){});
-  socket.on('disconnect', function(){});
-</script>
+## 使用
+```$xslt
+npm install @holytiny/wxmp-socket.io-client --save
 ```
 
-```js
-// with ES6 import
-import io from 'socket.io-client';
+## 注意
 
-const socket = io('http://localhost');
-```
-
-A slim build (without `JSON3`, a JSON polyfill for IE6/IE7, and `debug`) is also available: `socket.io.slim.js`.
-
-Socket.IO is compatible with [browserify](http://browserify.org/) and [webpack](https://webpack.js.org/) (see example [there](https://github.com/socketio/socket.io/tree/2.0.3/examples/webpack-build)).
-
-### Node.JS (server-side usage)
-
-  Add `socket.io-client` to your `package.json` and then:
-
-  ```js
-  var socket = require('socket.io-client')('http://localhost');
-  socket.on('connect', function(){});
-  socket.on('event', function(data){});
-  socket.on('disconnect', function(){});
-  ```
-
-## API
-
-See [API](/docs/API.md)
+- 兼容的Socket.IO-client版本：2.3.0。
+- 暂未提供打包的版本，请使用微信小程序开发环境的npm支持功能，或者使用支持npm的微信小程序前端框架。
 
 ## License
 
