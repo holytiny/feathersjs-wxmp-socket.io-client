@@ -13,6 +13,7 @@
 ```$xslt
 npm install @holytiny/wxmp-socket.io-client --save
 ```
+&emsp;&emsp;具体使用请参考[Socket.IO-client的文档](https://socket.io/docs/client-api/)
 
 ## 注意
 
