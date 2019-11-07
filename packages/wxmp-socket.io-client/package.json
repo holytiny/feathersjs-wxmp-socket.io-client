@@ -1,6 +1,6 @@
 {
   "name": "@holytiny/wxmp-socket.io-client",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
   "contributors": [

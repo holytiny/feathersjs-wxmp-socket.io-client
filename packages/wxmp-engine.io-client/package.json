@@ -2,7 +2,7 @@
   "name": "@holytiny/wxmp-engine.io-client",
   "description": "Client for the realtime Engine",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "main": "lib/index.js",
   "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
