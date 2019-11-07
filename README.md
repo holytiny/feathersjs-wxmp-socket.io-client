@@ -47,8 +47,8 @@ const feathersClient = FeathersClient();
 
 ## @holytiny/wxmp-socket.io-client
 
-&emsp;&emsp;[@holytiny/wxmp-socket.io-client](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-socket.io-client#readme)是本项目的一个包，提供了[Socket.IO-client](https://socket.io/docs/client-api/)在微信小程序环境下的兼容版本。
-这个包可以单独使用，具体请看[说明](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-socket.io-client)。
+&emsp;&emsp;[@holytiny/wxmp-socket.io-client](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-socket.io-client)是本项目的一个包，提供了[Socket.IO-client](https://socket.io/docs/client-api/)在微信小程序环境下的兼容版本。
+这个包可以单独使用，具体请看[说明](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-socket.io-client#readme)。
 
 ## License
 
