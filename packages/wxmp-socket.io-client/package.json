@@ -4,7 +4,7 @@
     "access": "public"
   },
   "version": "1.0.5",
-  "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
+  "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-socket.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
   "contributors": [
     "Ranco0929 <676667544@qq.com>",
