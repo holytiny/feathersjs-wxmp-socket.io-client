@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
   "contributors": [
@@ -30,7 +30,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@holytiny/wxmp-engine.io-client": "^1.0.3",
+    "@holytiny/wxmp-engine.io-client": "^1.0.4",
     "backo2": "1.0.2",
     "base64-arraybuffer": "0.1.5",
     "component-bind": "1.0.0",
