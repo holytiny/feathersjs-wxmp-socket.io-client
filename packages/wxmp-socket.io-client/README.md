@@ -11,9 +11,16 @@
 支持微信小程序环境下多websocket链接。
 
 ## 使用
-```$xslt
+```shell script
 npm install @holytiny/wxmp-socket.io-client --save
 ```
+&emsp;&emsp;在文件中：
+```js
+const io = require('@holytiny/wxmp-socket.io-client');
+// or with import syntax
+import io from '@holytiny/wxmp-socket.io-client';
+```
+
 &emsp;&emsp;具体使用请参考[Socket.IO-client的文档](https://socket.io/docs/client-api/)
 
 ## 注意
