@@ -20,15 +20,17 @@ module.exports = {
     new webpack.NormalModuleReplacementPlugin(/debug/, process.cwd() + '/support/noop.js')
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel-loader',
-      query: { presets: ['es2015'] }
-    }, {
-      test: /\.js$/,
-      loader: 'strip-loader?strip[]=debug'
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'strip-loader?strip[]=debug'
+      }
+    ]
   }
 };
 

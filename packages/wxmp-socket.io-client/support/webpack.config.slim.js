@@ -8,7 +8,7 @@ module.exports = merge(baseConfig, {
     libraryTarget: 'umd',
     filename: 'socket.io.slim.js'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+  optimization: {
+    minimize: true
+  }
 });
