@@ -15,12 +15,15 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [{
-      test: /\.js$/,
-      include: /debug/,
-      loader: 'babel-loader',
-      query: { presets: ['es2015'] }
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
   }
 };
 

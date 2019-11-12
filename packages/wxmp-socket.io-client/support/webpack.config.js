@@ -8,18 +8,7 @@ module.exports = merge(baseConfig, {
     libraryTarget: 'umd',
     filename: 'socket.io.js'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: false
-      },
-      mangle: {
-        screw_ie8: false
-      },
-      output: {
-        screw_ie8: false,
-        beautify: false
-      }
-    })
-  ]
+  optimization: {
+    minimize: true
+  }
 });
