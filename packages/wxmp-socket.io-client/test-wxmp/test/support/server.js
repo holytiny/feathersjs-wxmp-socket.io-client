@@ -146,3 +146,5 @@ server.on('connection', function (socket) {
     cb(socket.handshake);
   });
 });
+
+module.exports = server;

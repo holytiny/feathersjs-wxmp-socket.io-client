@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var io = require('../');
+var io = require('../../');
 
 describe('socket', function () {
   this.timeout(70000);
