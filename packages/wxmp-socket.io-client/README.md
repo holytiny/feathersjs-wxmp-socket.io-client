@@ -4,6 +4,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![npm version](https://img.shields.io/npm/v/@holytiny/wxmp-socket.io-client)](https://www.npmjs.com/package/@holytiny/wxmp-socket.io-client)
 [![npm download rate](https://img.shields.io/npm/dw/@holytiny/wxmp-socket.io-client)](https://www.npmjs.com/package/@holytiny/wxmp-socket.io-client)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 &emsp;&emsp;这个项目是微信小程序环境下[Socket.IO](http://github.com/socketio/socket.io)的客户端。
 

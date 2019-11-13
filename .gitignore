@@ -1,4 +1,5 @@
 node_modules/
+miniprogram_npm/
 lerna-debug.log
 npm-debug.log
 .DS_Store
