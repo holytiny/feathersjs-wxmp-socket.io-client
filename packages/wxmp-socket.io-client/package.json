@@ -86,7 +86,7 @@
     "test": "gulp test",
     "test:node": "gulp test:node",
     "test:zuul": "gulp test:zuul",
-    "test:wxmp": "node -r dotenv/config ./test-wxmp"
+    "test:wxmp": "jest --verbose"
   },
   "repository": {
     "type": "git",
