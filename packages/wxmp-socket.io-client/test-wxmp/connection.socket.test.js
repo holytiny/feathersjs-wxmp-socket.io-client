@@ -15,25 +15,32 @@ async function startServer () {
   debug('start server!');
   const server = require('./support/server');
   // wait for server started.
-  await sleep(1000);
+  await sleep(500);
   return server;
 }
 
 async function closeServer (server) {
   server.close();
-  await sleep(1);
+  await sleep(500);
   debug('close server!');
 }
 
 let server = null;
+let miniProgram = null;
 
 beforeAll(async () => {
   server = await startServer();
-});
+  miniProgram = await automator.launch({
+    cliPath: cli,
+    projectPath
+  });
+  // debug('miniProgram: ', miniProgram);
+}, 60 * 1000);
 
 afterAll(async () => {
+  await miniProgram.close();
   await closeServer(server);
-});
+}, 60 * 1000);
 
 describe('connection', () => {
   debug('Start connection tests!');
