@@ -8,31 +8,36 @@ const projectPath = path.resolve(__dirname, 'wxmp');
 debug('projectPath: ', projectPath);
 
 function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
+  return new Promise((resolve) => setTimeout(() => resolve(), time));
 }
 
 async function startServer () {
   debug('start server!');
   const server = require('./support/server');
   // wait for server started.
-  await sleep(2000);
+  await sleep(1000);
   return server;
 }
 
 async function closeServer (server) {
   server.close();
-  await sleep(2000);
+  await sleep(1);
   debug('close server!');
 }
 
-automator.launch({
-  cliPath: cli,
-  projectPath
-}).then(async miniProgram => {
-  console.log('Open mini program');
-  const server = await startServer();
-  await miniProgram.close();
-  await closeServer(server);
-}).catch(e => {
-  console.log('Error: ', e);
+let server = null;
+
+beforeAll(async () => {
+  server = await startServer();
 });
+
+afterAll(async () => {
+  await closeServer(server);
+});
+
+describe('connection', () => {
+  debug('Start connection tests!');
+  test('should connect to localhost', async () => {
+    debug('connect to localhost');
+  });
+})
