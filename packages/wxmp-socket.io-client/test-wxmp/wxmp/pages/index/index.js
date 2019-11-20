@@ -3,6 +3,20 @@ const io = require('@holytiny/wxmp-socket.io-client/socket.io.dev');
 //获取应用实例
 const app = getApp()
 
+function shouldConnectToLocalhost () {
+  return new Promise((resolve, reject) => {
+    let socket = io('http://localhost:3210', {
+      transports: ['websocket'],
+      forceNew: true
+    });
+    socket.emit('hi');
+    socket.on('hi', (data) => {
+      socket.disconnect();
+      resolve(true);
+    });
+  });
+}
+
 Page({
   data: {
     motto: 'Hello World',
@@ -16,7 +30,13 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: async function () {
+    // should connect to localhost
+    const res = await shouldConnectToLocalhost();
+    if (res) {
+      console.log('shouldConnectToLocalhost ', true);
+    }
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
