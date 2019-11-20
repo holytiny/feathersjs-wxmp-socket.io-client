@@ -4,13 +4,13 @@ const istanbul = require('gulp-istanbul');
 const webpack = require('webpack-stream');
 const child = require('child_process');
 const eslint = require('gulp-eslint');
+const del = require('del');
 
 // //////////////////////////////////////
 // BUILDING
 // //////////////////////////////////////
 
 const BUILD_TARGET_DIR = './dist/';
-
 // gulp.task('build', function () {
 //   return gulp.src('lib/*.js')
 //     .pipe(webpack({
@@ -23,7 +23,7 @@ const BUILD_TARGET_DIR = './dist/';
 //     }))
 //     .pipe(gulp.dest(BUILD_TARGET_DIR));
 // });
-function build () {
+const build = gulp.series(clean, () => {
   return gulp.src('lib/*.js')
     .pipe(webpack({
       config: [
@@ -34,8 +34,15 @@ function build () {
       ]
     }))
     .pipe(gulp.dest(BUILD_TARGET_DIR));
-}
+});
 build.description = 'update the browser builds';
+
+function clean () {
+  return del([
+    'dist/**'
+  ]);
+}
+clean.description = 'remove all files in "dist" dir';
 
 // //////////////////////////////////////
 // TESTING
@@ -143,7 +150,7 @@ function instanbulPreTest () {
 //       process.exit();
 //     });
 // });
-const testCov = gulp.series(instanbulPreTest, function () {
+const testCov = gulp.series(instanbulPreTest, () => {
   gulp.src(['test/*.js', 'test/support/*.js'])
   .pipe(mocha({
     reporter: REPORTER
@@ -165,6 +172,7 @@ testCov.description = 'run tests with coverage in Node.js';
 // //////////////////////////////////////
 exports.default = build;
 exports.build = build;
+exports.clean = clean;
 exports.lint = lint;
 exports.test = test;
 exports.testNode = testNode;

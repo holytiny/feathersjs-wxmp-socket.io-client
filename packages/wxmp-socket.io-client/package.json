@@ -53,6 +53,7 @@
     "babel-jest": "24.9.0",
     "babel-loader": "8.0.6",
     "concat-stream": "^1.6.0",
+    "del": "5.1.0",
     "derequire": "^2.0.6",
     "dotenv": "8.2.0",
     "eslint-config-standard": "4.4.0",
@@ -82,6 +83,7 @@
   },
   "scripts": {
     "help": "gulp -T",
+    "clean": "gulp clean",
     "build": "gulp build",
     "lint": "gulp lint",
     "test": "gulp test",

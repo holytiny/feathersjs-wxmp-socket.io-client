@@ -1,6 +1,5 @@
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var baseConfig = require('./webpack.config.dev.js');
+let merge = require('webpack-merge');
+let baseConfig = require('./webpack.config.base.js');
 
 module.exports = merge(baseConfig, {
   output: {

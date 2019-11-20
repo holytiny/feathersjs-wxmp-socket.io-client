@@ -1,38 +1,14 @@
+let merge = require('webpack-merge');
+let baseConfig = require('./webpack.config.slim.base.js');
 
-var webpack = require('webpack');
-
-module.exports = {
-  name: 'slim',
-  entry: './lib/index.js',
+module.exports = merge(baseConfig, {
   output: {
     library: 'io',
     libraryTarget: 'umd',
     filename: 'socket.io.slim.dev.js'
   },
-  externals: {
-    global: glob()
-  },
-  node: {
-    Buffer: false
-  },
-  devtool: 'source-map',
-  plugins: [
-    new webpack.NormalModuleReplacementPlugin(/debug/, process.cwd() + '/support/noop.js')
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'strip-loader?strip[]=debug'
-      }
-    ]
-  }
-};
+  devtool: 'source-map'
+});
 
 /**
  * Populates `global`.
