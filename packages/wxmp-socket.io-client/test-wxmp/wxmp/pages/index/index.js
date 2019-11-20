@@ -1,4 +1,5 @@
 //index.js
+const io = require('@holytiny/wxmp-socket.io-client/socket.io.dev');
 //获取应用实例
 const app = getApp()
 
