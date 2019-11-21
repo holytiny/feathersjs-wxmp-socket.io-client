@@ -50,22 +50,26 @@ describe('connection', () => {
   // https://jestjs.io/docs/en/setup-teardown#scoping
   let page = null;
   beforeAll(async () => {
-    page = await miniProgram.navigateTo('/pages/index');
-    debug('page.path', page.path);
+    const pageStack = await miniProgram.pageStack();
+    page = pageStack[0];
+    debug('page', page.path);
+    // wait for all tests finished.
+    const icons = await page.$$('icon');
+    debug('iconsLength', icons.length);
+    await page.waitFor(async () => {
+      const icons = await page.$$('icon');
+      return icons.length === connectionTestCases.length;
+    });
   });
 
-  test('dummy test', async () => {
-    debug('dummy test');
-  });
-
-  // miniProgram.navigateTo('/pages/index')
-  //   .then((page) => {
-  //     debug(page);
-  //     for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
-  //       const description = connectionTestCases.description;
-  //       test(description, async () => {
-  //         debug();
-  //       });
-  //     }
-  //   });
+  for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
+    const testCase = connectionTestCases[i];
+    test(testCase.description, async () => {
+      const selectClass = `.test-res-${i}`;
+      // debug('selectClass', selectClass);
+      const icon = await page.$(selectClass);
+      // debug('selected icon', icon);
+      expect(await icon.attribute('type')).toBe('success_no_circle');
+    });
+  }
 });
