@@ -4,8 +4,10 @@ const debug = require('debug')('wxmp-socket.io-client:test');
 
 const cli = process.env.cli || '/Applications/wechatwebdevtools.app/Contents/MacOS/cli';
 debug('cli: ', cli);
-const projectPath = path.resolve(__dirname, 'wxmp');
+const projectPath = path.resolve(__dirname, '../wxmp');
 debug('projectPath: ', projectPath);
+
+const connectionTestCases = require('../wxmp/test-cases/connection.test');
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(() => resolve(), time));
@@ -13,7 +15,7 @@ function sleep (time) {
 
 async function startServer () {
   debug('start server!');
-  const server = require('./support/server');
+  const server = require('../support/server');
   // wait for server started.
   await sleep(500);
   return server;
@@ -34,17 +36,36 @@ beforeAll(async () => {
     cliPath: cli,
     projectPath
   });
-  // debug('miniProgram: ', miniProgram);
+  // debug('beforeAll miniProgram: ', miniProgram);
 }, 60 * 1000);
 
 afterAll(async () => {
+  // debug('afterAll, miniProgram: ', miniProgram);
   await miniProgram.close();
   await closeServer(server);
 }, 60 * 1000);
 
 describe('connection', () => {
-  debug('Start connection tests!');
-  test('should connect to localhost', async () => {
-    debug('connect to localhost');
+  // no async describe, so use beforeAll.
+  // https://jestjs.io/docs/en/setup-teardown#scoping
+  let page = null;
+  beforeAll(async () => {
+    page = await miniProgram.navigateTo('/pages/index');
+    debug('page.path', page.path);
   });
-})
+
+  test('dummy test', async () => {
+    debug('dummy test');
+  });
+
+  // miniProgram.navigateTo('/pages/index')
+  //   .then((page) => {
+  //     debug(page);
+  //     for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
+  //       const description = connectionTestCases.description;
+  //       test(description, async () => {
+  //         debug();
+  //       });
+  //     }
+  //   });
+});

@@ -1,13 +1,26 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">Connection Test</view>
+    <view class="page__desc">测试socket.io-client的连接</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-progress">
+      <view class="weui-progress__bar">
+        <progress percent="{{testPercent}}" stroke-width="3" show-info />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">测试结果</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{testResults}}" wx:key="{{index}}" class="weui-cell weui-cell_example ">
+      <view class="weui-cell__hd">
+        <icon wx:if="{{item.result}}" type="success_no_circle" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></icon>
+        <icon wx:else type="cancel" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></icon>    
+      </view>
+      <view class="weui-cell__bd">{{item.description}}</view>
+      <!-- <view class="weui-cell__ft">说明文字</view> -->
+    </view>
   </view>
 </view>

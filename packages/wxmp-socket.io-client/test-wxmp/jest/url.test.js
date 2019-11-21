@@ -1,5 +1,5 @@
 let loc = {};
-let url = require('../lib/url');
+let url = require('../../lib/url');
 let expect = require('expect.js');
 
 describe('url', function () {
