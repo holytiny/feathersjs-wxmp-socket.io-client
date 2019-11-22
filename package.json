@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "release": "lerna publish --force-publish"
+  },
   "devDependencies": {
     "@vue/cli": "4.0.5",
     "@wepy/cli": "2.0.0-alpha.20",
