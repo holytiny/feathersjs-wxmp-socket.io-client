@@ -54,13 +54,13 @@ describe('connection', () => {
     page = pageStack[0];
     debug('page', page.path);
     // wait for all tests finished.
-    const icons = await page.$$('icon');
-    debug('iconsLength', icons.length);
     await page.waitFor(async () => {
       const icons = await page.$$('icon');
       return icons.length === connectionTestCases.length;
     });
-  });
+    // wait for test async?
+    await sleep(1000);
+  }, 60 * 1000);
 
   for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
     const testCase = connectionTestCases[i];
