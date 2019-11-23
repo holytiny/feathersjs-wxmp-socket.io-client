@@ -15,6 +15,7 @@
     "zzXiongFan <zzxiongfan@gmail.com>"
   ],
   "dependencies": {
+    "@holytiny/wxmp-engine.io-parser": "1.0.7-alpha.0",
     "component-emitter": "1.2.1",
     "component-inherit": "0.0.3",
     "debug": "~4.1.0",
@@ -23,7 +24,6 @@
     "parseqs": "0.0.5",
     "parseuri": "0.0.5",
     "ws": "~6.1.0",
-    "wxmp-engine.io-parser": "^1.0.7",
     "xmlhttprequest-ssl": "~1.5.4",
     "yeast": "0.1.2"
   },
