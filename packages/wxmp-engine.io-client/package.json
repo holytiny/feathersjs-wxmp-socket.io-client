@@ -15,7 +15,7 @@
     "zzXiongFan <zzxiongfan@gmail.com>"
   ],
   "dependencies": {
-    "@holytiny/wxmp-engine.io-parser": "^1.0.7-alpha.1",
+    "@holytiny/wxmp-engine.io-parser": "file:../wxmp-engine.io-parser",
     "component-emitter": "1.2.1",
     "component-inherit": "0.0.3",
     "debug": "~4.1.0",

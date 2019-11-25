@@ -40,5 +40,5 @@
   "files": [
     "lib/"
   ],
-  "browser": "./lib/browser.js"
+  "browser": "lib/wxmp.browser.js"
 }

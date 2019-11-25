@@ -3,7 +3,7 @@
  */
 
 import Transport from '../transport';
-import parser from 'engine.io-parser';
+import parser from '@holytiny/wxmp-engine.io-parser';
 import parseqs from 'parseqs';
 // let inherit = require('component-inherit');
 import yeast from 'yeast';
