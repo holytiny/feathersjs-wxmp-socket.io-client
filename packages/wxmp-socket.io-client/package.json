@@ -1,5 +1,6 @@
 {
   "name": "@holytiny/wxmp-socket.io-client",
+  "description": "socket.io-client for WeChat mini program",
   "publishConfig": {
     "access": "public"
   },

@@ -1,5 +1,8 @@
 {
   "name": "@holytiny/wxmp-engine.io-parser",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Parser for the client for the realtime Engine",
   "license": "MIT",
   "version": "1.0.7-alpha.0",
@@ -20,6 +23,7 @@
     "zuul-ngrok": "4.0.0"
   },
   "dependencies": {
+    "Base64": "1.1.0",
     "after": "0.8.2",
     "arraybuffer.slice": "~0.0.7",
     "base64-arraybuffer": "0.1.5",

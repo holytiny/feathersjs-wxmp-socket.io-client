@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var parser = require('engine.io-parser');
+var parser = require('@holytiny/wxmp-engine.io-parser');
 var Emitter = require('component-emitter');
 
 /**

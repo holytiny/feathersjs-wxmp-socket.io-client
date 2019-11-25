@@ -7,6 +7,7 @@ var hasBinary = require('has-binary2');
 var sliceBuffer = require('arraybuffer.slice');
 var after = require('after');
 var utf8 = require('./utf8');
+const { btoa } = require('Base64');
 
 var base64encoder;
 if (typeof ArrayBuffer !== 'undefined') {
