@@ -90,7 +90,7 @@ node server.js
 ### 自动运行测试用例
 &emsp;&emsp;本项目采用了Jest和微信小程序的automator进行自动化测试。
 Jest脚本位于`wxmp-cocket.io-client/test-wxmp/jest/`目录下。
-&emsp;&emsp;Jest的配置脚本`wxmp-socket.io-client/jest.config.js`指定了运行Jest前使用.evn进行环境变量管理。
+Jest的配置脚本`wxmp-socket.io-client/jest.config.js`指定了运行Jest前使用.evn进行环境变量管理。
 
 &emsp;&emsp;首先打开`wxmp-socket.io-client/.env`进行环境变量配置。
 
