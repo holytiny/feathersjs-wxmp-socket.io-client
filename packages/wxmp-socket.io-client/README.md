@@ -111,6 +111,7 @@ debug('cli: ', cli);
 ```
 
 &emsp;&emsp;然后打开微信小程序开发环境。
+
 ![微信小程序IDE](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/wxmp-ide.png)
 
 &emsp;&emsp;在命令行终端进入`wxmp-socket.io-client`目录后，执行`npm run test:wxmp`。
