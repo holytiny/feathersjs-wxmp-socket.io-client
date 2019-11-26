@@ -84,6 +84,38 @@ node server.js
 
 ![socket测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/socket-test-cases.png)
 
+&emsp;&emsp;测试代码在`wxmp-socket.io-client/test-wxmp/wxmp/test-cases/`目录下。
+可以将测试代码作为应用参考。
+
+### 自动运行测试用例
+&emsp;&emsp;本项目采用了Jest和微信小程序的automator进行自动化测试。
+Jest脚本位于`wxmp-cocket.io-client/test-wxmp/jest/`目录下。
+&emsp;&emsp;Jest的配置脚本`wxmp-socket.io-client/jest.config.js`指定了运行Jest前使用.evn进行环境变量管理。
+
+&emsp;&emsp;首先打开`wxmp-socket.io-client/.env`进行环境变量配置。
+
+```editorconfig
+# cli path
+#cli='C:/Program Files (x86)/Tencent/微信web开发者工具/cli.bat'
+# Debug
+#DEBUG=wxmp-socket.io-client:test
+```
+&emsp;&emsp;环境变量在Jest脚本中起的作用：
+```js
+const automator = require('miniprogram-automator')
+const path = require('path');
+const debug = require('debug')('wxmp-socket.io-client:test');
+
+const cli = process.env.cli || '/Applications/wechatwebdevtools.app/Contents/MacOS/cli';
+debug('cli: ', cli);
+```
+
+&emsp;&emsp;然后打开微信小程序开发环境。
+![微信小程序IDE](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/wxmp-ide.png)
+
+&emsp;&emsp;在命令行终端进入`wxmp-socket.io-client`目录后，执行`npm run test:wxmp`。
+
+![自动测试](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/automator-test-cases.gif)
 ## 联系
 &emsp;&emsp;欢迎在github上提issue。也欢迎邮件<contact@holytiny.com>。
 
