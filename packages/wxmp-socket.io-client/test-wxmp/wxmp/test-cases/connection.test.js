@@ -406,7 +406,7 @@ shouldStopReconnectingWhenForceClosed.description = 'should stop reconnecting wh
 function shouldReconnectAfterStoppingReconnection () {
   return new Promise((resolve, reject) => {
     const io = require('@holytiny/wxmp-socket.io-client/socket.io.dev');
-    let socket = io('http://localhost:3210/invalid', {
+    let socket = io('/invalid', {
       transports: ['websocket'],
       forceNew: true,
       timeout: 0,
@@ -420,10 +420,6 @@ function shouldReconnectAfterStoppingReconnection () {
       socket.disconnect();
       socket.connect();
     });
-
-    setTimeout(function () {
-      socket.io.engine.close();
-    }, 500);
   });
 }
 shouldReconnectAfterStoppingReconnection.description = 'should reconnect after stopping reconnection';
@@ -720,6 +716,44 @@ function shouldSendBinaryData () {
 }
 shouldSendBinaryData.description = 'should send binary data (as an ArrayBuffer)';
 
+function shouldSendBinaryDataMixedWithJson () {
+  return new Promise((resolve, reject) => {
+    const io = require('@holytiny/wxmp-socket.io-client/socket.io.dev');
+    let socket = io('http://localhost:3210/', {
+      forceNew: true,
+      transports: ['websocket']
+    });
+
+    const base64 = require('base64-arraybuffer');
+    socket.on('jsonbuff-ack', function () {
+      socket.disconnect();
+      resolve(true);
+    });
+    const buf = base64.decode('howdy');
+    socket.emit('jsonbuff', {hello: 'lol', message: buf, goodbye: 'gotcha'});
+  });
+}
+shouldSendBinaryDataMixedWithJson.description = 'should send binary data (as an ArrayBuffer) mixed with json';
+
+function shouldSendEventsWithArrayBuffersInTheCorrectOrder () {
+  return new Promise((resolve, reject) => {
+    const io = require('@holytiny/wxmp-socket.io-client/socket.io.dev');
+    let socket = io('http://localhost:3210/', {
+      forceNew: true,
+      transports: ['websocket']
+    });
+
+    const base64 = require('base64-arraybuffer');
+    socket.on('abuff2-ack', function () {
+      socket.disconnect();
+      resolve(true);
+    });
+    const buf = base64.decode('abuff1');
+    socket.emit('abuff1', buf);
+    socket.emit('abuff2', 'please arrive second');
+  });
+}
+shouldSendEventsWithArrayBuffersInTheCorrectOrder.description = 'should send events with ArrayBuffers in the correct order';
 
 module.exports = [
   // shouldConnectToLocalhost,
@@ -750,5 +784,7 @@ module.exports = [
   // shouldEmitDateAsString,
   // shouldEmitDateInObject,
   // shouldGetBinaryData,
-  shouldSendBinaryData
+  // shouldSendBinaryData,
+  // shouldSendBinaryDataMixedWithJson,
+  shouldSendEventsWithArrayBuffersInTheCorrectOrder
 ];

@@ -1,6 +1,5 @@
-// index.js
 // 获取应用实例
-const connectionTestCases = require('../../test-cases/connection.test.js');
+const socketTestCases = require('../../test-cases/socket.test.js');
 const app = getApp()
 
 Page({
@@ -9,8 +8,8 @@ Page({
     testPercent: 0
   },
   onLoad: async function () {
-    for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
-      const test = connectionTestCases[i];
+    for (let i = 0, length = socketTestCases.length; i < length; ++i) {
+      const test = socketTestCases[i];
       const res = await test();
       this.data.testResults[i] = {
         result: res,
@@ -21,11 +20,6 @@ Page({
         testResults: this.data.testResults
       });
     }
-  },
-  gotoSocketTestPage: function () {
-    console.log('goto socket test');
-    wx.navigateTo({
-      url: '../socket/socket'
-      });
   }
 });
+

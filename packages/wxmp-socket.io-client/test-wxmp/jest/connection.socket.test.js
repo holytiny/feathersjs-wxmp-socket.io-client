@@ -8,6 +8,7 @@ const projectPath = path.resolve(__dirname, '../wxmp');
 debug('projectPath: ', projectPath);
 
 const connectionTestCases = require('../wxmp/test-cases/connection.test');
+const socketTestCases = require('../wxmp/test-cases/socket.test');
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(() => resolve(), time));
@@ -64,6 +65,34 @@ describe('connection', () => {
 
   for (let i = 0, length = connectionTestCases.length; i < length; ++i) {
     const testCase = connectionTestCases[i];
+    test(testCase.description, async () => {
+      const selectClass = `.test-res-${i}`;
+      // debug('selectClass', selectClass);
+      const icon = await page.$(selectClass);
+      // debug('selected icon', icon);
+      expect(await icon.attribute('type')).toBe('success_no_circle');
+    });
+  }
+});
+
+describe('socket', () => {
+  // no async describe, so use beforeAll.
+  // https://jestjs.io/docs/en/setup-teardown#scoping
+  let page = null;
+  beforeAll(async () => {
+    page = await miniProgram.navigateTo('../socket/socket');
+    debug('page', page.path);
+    // wait for all tests finished.
+    await page.waitFor(async () => {
+      const icons = await page.$$('icon');
+      return icons.length === socketTestCases.length;
+    });
+    // wait for test async?
+    await sleep(1000);
+  }, 60 * 1000);
+
+  for (let i = 0, length = socketTestCases.length; i < length; ++i) {
+    const testCase = socketTestCases[i];
     test(testCase.description, async () => {
       const selectClass = `.test-res-${i}`;
       // debug('selectClass', selectClass);

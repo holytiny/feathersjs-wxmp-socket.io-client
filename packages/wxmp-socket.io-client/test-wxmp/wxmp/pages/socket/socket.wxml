@@ -1,7 +1,7 @@
 <view class="page">
   <view class="page__hd">
     <view class="page__title">Connection Test</view>
-    <view class="page__desc">测试socket.io-client的连接</view>
+    <view class="page__desc">测试socket.io-client的socket</view>
   </view>
 
   <view class="page__bd page__bd_spacing">
@@ -11,9 +11,6 @@
       </view>
     </view>
   </view>
-
-  <button wx:if="{{testPercent === 100}}" class="weui-btn" type="default" bindtap="gotoSocketTestPage">Socket Test</button>
-  <button wx:else class="weui-btn" type="default" disabled="true">Socket Test</button>
 
   <view class="weui-cells__title">测试结果</view>
   <view class="weui-cells weui-cells_after-title">
