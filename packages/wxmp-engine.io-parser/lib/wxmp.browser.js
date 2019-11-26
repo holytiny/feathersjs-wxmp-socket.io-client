@@ -1,20 +1,13 @@
 /**
  * Module dependencies.
  */
-var btoa = null;
-if (typeof wx.canIUse === 'function') {
-  console.log('in wxmp');
-  btoa = function () {
-    console.log('in wxmp');
-  }
-} else {
-  btoa = window.btoa;
-}
 var keys = require('./keys');
 var hasBinary = require('has-binary2');
 var sliceBuffer = require('arraybuffer.slice');
 var after = require('after');
 var utf8 = require('./utf8');
+var base64 = require('base64');
+var btoa = base64.btoa;
 
 var base64encoder;
 if (typeof ArrayBuffer !== 'undefined') {
