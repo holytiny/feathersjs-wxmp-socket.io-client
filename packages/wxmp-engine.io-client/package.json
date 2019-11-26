@@ -5,7 +5,7 @@
   },
   "description": "Client for the realtime Engine",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "lib/index.js",
   "homepage": "https://github.com/holytiny/feathersjs-wxmp-socket.io-client/tree/master/packages/wxmp-engine.io-client#readme",
   "author": "Holytiny <contact@holytiny.com>",
@@ -15,7 +15,7 @@
     "zzXiongFan <zzxiongfan@gmail.com>"
   ],
   "dependencies": {
-    "@holytiny/wxmp-engine.io-parser": "file:../wxmp-engine.io-parser",
+    "@holytiny/wxmp-engine.io-parser": "^1.1.1",
     "component-emitter": "1.2.1",
     "component-inherit": "0.0.3",
     "debug": "~4.1.0",
