@@ -1,6 +1,6 @@
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">Connection Test</view>
+    <view class="page__title">Socket Test</view>
     <view class="page__desc">测试socket.io-client的socket</view>
   </view>
 
