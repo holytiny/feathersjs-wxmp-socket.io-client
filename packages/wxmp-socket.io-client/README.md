@@ -78,8 +78,11 @@ node server.js
 &emsp;&emsp;然后将程序`wxmp-socket.io-client/test-wxmp/wxmp`导入微信小程序开发环境，在微信小程序环境中 **构建npm** 后刷新。
 程序会自动执行connection测试用例。
 
+![connection测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/connection-test-cases.png)
+
 当connection测试用例执行完成后，可以点击 **Socket Test** 按钮，对Socket进行测试。
 
+![socket测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/socket-test-cases.png)
 
 ## 联系
 &emsp;&emsp;欢迎在github上提issue。也欢迎邮件<contact@holytiny.com>。
