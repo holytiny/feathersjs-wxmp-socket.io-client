@@ -80,9 +80,72 @@ node server.js
 
 ![connection测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/connection-test-cases.png)
 
-当connection测试用例执行完成后，可以点击 **Socket Test** 按钮，对Socket进行测试。
+&emsp;&emsp;当connection测试用例执行完成后，可以点击 **Socket Test** 按钮，对Socket进行测试。
 
 ![socket测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/socket-test-cases.png)
+
+&emsp;&emsp;当socket测试用例执行完成后，可以点击 **WSS Test** 按钮，对wss进行测试。此测试需要自行搭建服务器以及申请域名和进行备案。
+本测试环境为ubuntu 18.04，用nginx作为反向代理，将wss反向代理到本机的ws服务。
+可以参考`wxmp-socket.io-client/test-wxmp/nginx.sh`的脚本内容。
+
+```shell script
+#!/usr/bin/env bash
+
+SITE=holytiny.com
+
+echo 'Install or update nginx...'
+apt-get update
+apt-get install -y nginx
+
+echo 'config nginx...'
+cp -f ./support/${SITE} /etc/nginx/sites-available/
+
+echo 'clean current enbalbed sites...'
+rm /etc/nginx/sites-enabled/*
+
+echo 'enable holytiny.com...'
+ln -s /etc/nginx/sites-available/${SITE} /etc/nginx/sites-enabled/
+
+echo 'restart nginx...'
+systemctl restart nginx
+
+echo 'start nginx automatically...'
+systemctl enable nginx
+
+echo 'start socket.io wss test server...'
+pm2 start -f ./support/server.js
+```
+&emsp;&emsp;nginx的配置文件在`wxmp-socket.io-client/test-wxmp/support/holytiny.com`，
+可以作为参考。
+```nginx
+server {
+  listen              443 ssl;
+  listen              [::]:443 ssl;
+  ssl_certificate     /var/webapp/TowerMonitor/backend/support/holytiny.com.pem;
+  ssl_certificate_key /var/webapp/TowerMonitor/backend/support/holytiny.com.key;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+
+  location / {
+    proxy_pass http://localhost:3030/;
+  }
+
+  location /socket.io/ {
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_pass "http://localhost:3210/socket.io/";
+  }
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+  return 301 https://$host$request_uri;
+}
+```
+
+![wss测试用例](https://github.com/holytiny/feathersjs-wxmp-socket.io-client/blob/master/asset/wss-test-cases.png)
 
 &emsp;&emsp;测试代码在`wxmp-socket.io-client/test-wxmp/wxmp/test-cases/`目录下。
 可以将测试代码作为应用参考。

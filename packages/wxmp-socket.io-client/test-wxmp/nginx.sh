@@ -22,4 +22,4 @@ echo 'start nginx automatically...'
 systemctl enable nginx
 
 echo 'start socket.io wss test server...'
-pm2 start ./support/server.js
+pm2 start -f ./support/server.js

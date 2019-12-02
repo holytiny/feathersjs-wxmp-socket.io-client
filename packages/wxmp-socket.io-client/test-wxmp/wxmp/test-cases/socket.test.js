@@ -298,19 +298,19 @@ function shouldFireAnErrorEventOnMiddlewareFailureFromCustomNamespace () {
 shouldFireAnErrorEventOnMiddlewareFailureFromCustomNamespace.description = 'should fire an error event on middleware failure from custom namespace';
 
 module.exports = [
-  // shouldHaveAnAccessibleSocketIdEqualToTheServerSideSocketId,
-  // shouldHaveAnAccessibleSocketIdEqualToTheServerSideSocketId2,
-  // shouldClearSocketIdUponDisconnection,
-  // shouldNotFireConnectErrorIfWeForceDisconnectInOpeningState,
-  // shouldPingAndPongWithLatency,
-  // shouldChangeSocketIdUponReconnection,
-  // shouldEnableCompressionByDefault,
-  // shouldCanDisableCompression,
-  // shouldAcceptAnObject,
-  // shouldAcceptQueryString,
-  // shouldAcceptObject2,
-  // shouldAcceptQueryString2,
-  // shouldProperlyEncodeParameters,
-  // shouldFireAnErrorEventOnMiddlewareFailureFromMainNamespace,
+  shouldHaveAnAccessibleSocketIdEqualToTheServerSideSocketId,
+  shouldHaveAnAccessibleSocketIdEqualToTheServerSideSocketId2,
+  shouldClearSocketIdUponDisconnection,
+  shouldNotFireConnectErrorIfWeForceDisconnectInOpeningState,
+  shouldPingAndPongWithLatency,
+  shouldChangeSocketIdUponReconnection,
+  shouldEnableCompressionByDefault,
+  shouldCanDisableCompression,
+  shouldAcceptAnObject,
+  shouldAcceptQueryString,
+  shouldAcceptObject2,
+  shouldAcceptQueryString2,
+  shouldProperlyEncodeParameters,
+  shouldFireAnErrorEventOnMiddlewareFailureFromMainNamespace,
   shouldFireAnErrorEventOnMiddlewareFailureFromCustomNamespace
 ];
