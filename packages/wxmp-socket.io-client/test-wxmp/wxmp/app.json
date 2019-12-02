@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/socket/socket"
+    "pages/socket/socket",
+    "pages/wss/wss"
   ],
   "window": {
     "backgroundTextStyle": "light",

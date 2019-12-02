@@ -1,5 +1,6 @@
+// index.js
 // 获取应用实例
-const socketTestCases = require('../../test-cases/socket.test.js');
+const wssTestCases = require('../../test-cases/wss.test.js');
 const app = getApp()
 
 Page({
@@ -8,8 +9,8 @@ Page({
     testPercent: 0
   },
   onLoad: async function () {
-    for (let i = 0, length = socketTestCases.length; i < length; ++i) {
-      const test = socketTestCases[i];
+    for (let i = 0, length = wssTestCases.length; i < length; ++i) {
+      const test = wssTestCases[i];
       const res = await test();
       this.data.testResults[i] = {
         result: res,
@@ -21,11 +22,10 @@ Page({
       });
     }
   },
-  gotoWssTestPage: function () {
-    console.log('goto wss test');
+  gotoSocketTestPage: function () {
+    console.log('goto socket test');
     wx.navigateTo({
-      url: '../wss/wss'
-    });
+      url: '../socket/socket'
+      });
   }
 });
-
