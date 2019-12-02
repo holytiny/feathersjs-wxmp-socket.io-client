@@ -3,6 +3,8 @@ server {
   listen              [::]:443 ssl;
   ssl_certificate     /var/webapp/TowerMonitor/backend/support/holytiny.com.pem;
   ssl_certificate_key /var/webapp/TowerMonitor/backend/support/holytiny.com.key;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
 
   location / {
     proxy_pass http://localhost:3030/;
